@@ -12,3 +12,20 @@ body{
     margin: 20px;
     display:flex;
 }
+ 
+mat-card {
+    max-width: 50%;
+    margin: 2em auto;
+    text-align: center;
+}
+  
+mat-toolbar-row {
+    justify-content: space-between;
+}
+  
+.done {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+}
