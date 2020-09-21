@@ -1,0 +1,12 @@
+.container {
+    margin: 100px;
+    display:flex;
+}
+mat-card-title.h3{
+    margin-left: 0px;
+}
+mat-card {
+    max-width: 50%;
+    margin: 2em auto;
+    text-align: left;
+}
