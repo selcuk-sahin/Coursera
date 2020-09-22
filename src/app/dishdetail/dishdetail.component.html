@@ -10,12 +10,12 @@
     <mat-card >
         <mat-card-header>
             <mat-card-title>
-                <h4>{{selectedDish.name | uppercase}}</h4>
+                <h3>{{dish.name | uppercase}}</h3>
             </mat-card-title>
         </mat-card-header>
-        <img mat-card-image src={{selectedDish.image}} alt ={{selectedDish.name}}>
+        <img mat-card-image src={{dish.image}} alt ={{dish.name}}>
         <mat-card-content>
-            <p>{{selectedDish.description}}</p>
+            <p>{{dish.description}}</p>
         </mat-card-content>
         <mat-card-actions>
             <button mat-button>LIKE</button>
@@ -28,11 +28,11 @@
     <mat-card>
     <mat-card-header>
         <mat-card-title>
-            <h4>Comments</h4>
+            <h3>Comments</h3>
         </mat-card-title>
     </mat-card-header>
     
-    <mat-list role="list" *ngFor="let comment of comments">
+    <mat-list role="list" *ngFor="let comment of dish.comments">
         <mat-list-item role="listitem">
             <p>{{comment.comment}}</p>
             <p>{{comment.rating}} Stars</p>
