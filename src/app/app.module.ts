@@ -21,6 +21,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { LeaderService } from './services/leader.service';
+import { PromotionService } from './services/promotion.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,11 @@ import { ContactComponent } from './contact/contact.component';
     MatGridListModule,
     MatListModule
   ],
-  providers: [DishService],
+  providers: [
+    DishService ,
+    LeaderService,
+    PromotionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
