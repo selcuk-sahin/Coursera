@@ -9,15 +9,15 @@
     fxLayoutGap.xs="0"-->
 
 <div fxFlex="40">
-    <mat-card >
+    <mat-card *ngIf="dish">
         <mat-card-header>
             <mat-card-title>
-                <h3>{{dish.name | uppercase}}</h3>
+                <h3 *ngIf="dish">{{dish.name | uppercase}}</h3>
             </mat-card-title>
         </mat-card-header>
-        <img mat-card-image src={{dish.image}} alt ={{dish.name}}>
+        <img *ngIf="dish" mat-card-image src={{dish.image}} alt ={{dish.name}}>
         <mat-card-content>
-            <p>{{dish.description}}</p>
+            <p *ngIf="dish">{{dish.description}}</p>
         </mat-card-content>
         <mat-card-actions>
             <button mat-button (click)= "goBack()">BACK</button>
@@ -28,7 +28,7 @@
 </div>
 
 <div fxFlex="60">
-    <mat-card>
+    <mat-card *ngIf="dish.comments">
     <mat-card-header>
         <mat-card-title>
             <h3>Comments</h3>
@@ -37,9 +37,9 @@
     <mat-card-content>
     <mat-list *ngFor="let comment of dish.comments">
         <mat-list-item>
-            <p matLine>{{comment.comment}}</p>
-            <p matLine>{{comment.rating}} Stars</p>
-            <p matLine>-- {{comment.author}} {{comment.date | date}}</p>
+            <p *ngIf="dish" matLine>{{comment.comment}}</p>
+            <p *ngIf="dish" matLine>{{comment.rating}} Stars</p>
+            <p *ngIf="dish" matLine>-- {{comment.author}} {{comment.date | date}}</p>
         </mat-list-item>
     </mat-list>
     </mat-card-content>
