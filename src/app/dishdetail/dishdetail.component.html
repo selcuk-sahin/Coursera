@@ -8,8 +8,8 @@
     fxLayoutAlign.gt-md="space-around center"
     fxLayoutGap.xs="0"-->
 
-<div fxFlex="40">
-    <mat-card *ngIf="dish">
+<div fxFlex="40" *ngIf="dish">
+    <mat-card>
         <mat-card-header>
             <mat-card-title>
                 <h3 *ngIf="dish">{{dish.name | uppercase}}</h3>
@@ -27,8 +27,12 @@
     </mat-card>
 </div>
 
-<div fxFlex="60">
-    <mat-card *ngIf="dish.comments">
+<div [hidden]="dish">
+    <mat-spinner></mat-spinner><h4>Dish being served</h4>
+</div>
+
+<div fxFlex="60" *ngIf="dish.comments">
+    <mat-card>
     <mat-card-header>
         <mat-card-title>
             <h3>Comments</h3>
@@ -44,6 +48,9 @@
     </mat-list>
     </mat-card-content>
     </mat-card>
+</div>
+<div [hidden]="dish.comments">
+    <mat-spinner></mat-spinner><h4>Mean comments are generating :/</h4>
 </div>
 
 </div>
