@@ -21,6 +21,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
+import { HttpClientModule } from '@angular/common/http';
 
 import 'hammerjs';
 
@@ -35,6 +36,8 @@ import { ContactComponent } from './contact/contact.component';
 import { LeaderService } from './services/leader.service';
 import { PromotionService } from './services/promotion.service';
 import { LoginComponent } from './login/login.component';
+
+import { baseURL } from './shared/serverconfig';
 
 @NgModule({
   declarations: [
@@ -69,12 +72,14 @@ import { LoginComponent } from './login/login.component';
     MatSlideToggleModule,
     MatSliderModule,
     MatProgressSpinnerModule,
+    HttpClientModule,
     ReactiveFormsModule
   ],
   providers: [
     DishService ,
     LeaderService,
-    PromotionService
+    PromotionService,
+    {provide: 'BaseURL', useValue: baseURL }
   ],
   entryComponents: [
     LoginComponent

@@ -18,7 +18,7 @@
                 <h3 *ngIf="dish">{{dish.name | uppercase}}</h3>
             </mat-card-title>
         </mat-card-header>
-        <img *ngIf="dish" mat-card-image src={{dish.image}} alt ={{dish.name}}>
+        <img *ngIf="dish" mat-card-image src="{{baseURL + dish.image}}" alt ={{dish.name}}>
         <mat-card-content>
             <p *ngIf="dish">{{dish.description}}</p>
         </mat-card-content>
@@ -71,11 +71,11 @@
             </mat-form-field>
          </p>
          <p> Rating</p>
-            <mat-slider class="margin" [disabled]="disabled" [invert]="false"
+            <mat-slider formControlName="rating" class="margin" [disabled]="disabled" [invert]="false"
             [max]="5" [min]="0" [step]="1"
             [thumbLabel]="true" [tickInterval]="1" 
             [value] ="5"
-            [(ngModel)]="value"            
+            [(ngModel)]="rating"            
             [vertical]="false">
            </mat-slider>
            <p>Slider val is {{rating}}</p>

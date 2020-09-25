@@ -8,21 +8,16 @@
             <hr>
         </div>
     </div>
-
+    
     <div fxFlex *ngIf="dishes">
         <mat-grid-list cols="2" rowHeight="200px"> <!--This is 1 piece of content, as a unit-->
             <mat-grid-tile *ngFor="let dish of dishes" [routerlink]="['/dishdetail',dish.id]" (click)="onSelect(dish)">
-                <img height="200px" matListAvatar src={{dish.image}} alt= {{dish.name}}>
+                <img height="200px" matListAvatar src= "{{ baseURL + dish.image }}" alt= {{dish.name}}>
                 <mat-grid-tile-footer>
                     <h1 matLine> {{dish.name | uppercase}} </h1>
                 </mat-grid-tile-footer>
             </mat-grid-tile>
         </mat-grid-list>
     </div>
-    <div [hidden]="dishes">
-        <mat-spinner></mat-spinner><h4>Serving Dishes :)</h4>
-    </div>
-    
-    <app-dishdetail *ngIf="selectedDish" [dish]="selectedDish"></app-dishdetail>
   
 </div>
