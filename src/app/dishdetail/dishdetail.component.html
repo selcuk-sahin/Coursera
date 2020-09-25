@@ -1,14 +1,17 @@
 <div class="container"
     fxLayout="row"
     fxLayoutGap="10px" 
-    fxLayoutAlign=" center" >
+    fxLayoutAlign="center" 
+    fxLayout.xs="column"
+    fxLayout.sm="column"
+    fxLayoutGap.xs="0">
 
     <!-- fxLayout.sm="column"
-    fxLayout.xs="column" 
+     
     fxLayoutAlign.gt-md="space-around center"
     fxLayoutGap.xs="0"-->
 
-<div fxFlex="40" *ngIf="dish">
+<div fxFlex="60" *ngIf="dish">
     <mat-card>
         <mat-card-header>
             <mat-card-title>
@@ -38,7 +41,7 @@
     <mat-spinner></mat-spinner><h4>Dish being served</h4>
 </div>
 
-<div fxFlex="60" *ngIf="dish">
+<div fxFlex="40" *ngIf="dish">
     <mat-card>
     <mat-card-header>
         <mat-card-title>
@@ -55,9 +58,38 @@
     </mat-list>
     </mat-card-content>
     </mat-card>
+        <h3>Send a Comment</h3>
+        <p>{{ feedbackForm.value | json }} {{ feedbackForm.status | json }}</p>
+    
+        <form novalidate [formGroup]="feedbackForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+          <p>
+            <mat-form-field class="half-width">
+              <input matInput formControlName="name" placeholder="Name" type="text" required>
+              <mat-error *ngIf="formErrors.name">
+                {{ formErrors.name }}
+              </mat-error>
+            </mat-form-field>
+         </p>
+         <p> Rating</p>
+            <mat-slider class="margin" [disabled]="disabled" [invert]="false"
+            [max]="5" [min]="0" [step]="1"
+            [thumbLabel]="true" [tickInterval]="1" 
+            [value] ="5"
+            [(ngModel)]="value"            
+            [vertical]="false">
+           </mat-slider>
+           <p>Slider val is {{rating}}</p>
+            <p>
+            <mat-form-field class="full-width">
+              <input matInput formControlName="comment" placeholder="Comment" type="text" required>
+              <mat-error *ngIf="formErrors.comment">
+                {{ formErrors.comment }}
+              </mat-error>
+            </mat-form-field>
+          </p>
+          <button type="submit" mat-button class="background-primary text-floral-white">Submit</button>
+        </form>
+    
 </div>
-<div [hidden]="dish.comments">
-    <mat-spinner></mat-spinner><h4>Mean comments are generating :/</h4>
-</div>
-
+        
 </div>
